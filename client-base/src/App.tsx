@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import List from './Base/List';
-import IClient from './interface';
+import Modal from './Modal/Modal';
 
 function App() {
   const [clients, setClients] = useState([
@@ -10,10 +10,27 @@ function App() {
     {id: 3, firstName: 'Three', lastName: 'Threest', phone: '3333', avatarUrl: 'urlThree'}
   ])
 
+  const [modalState, setModalState] = useState({
+    isOpen: false
+  })
+
+  function changeModalState() {
+    let newState = !modalState.isOpen;
+    setModalState({isOpen: newState});
+  }
+
   return (
     <div className='main'>
       <h1>Client base</h1>
-      <List clients={clients}></List>
+      <Modal 
+        changeModalState={changeModalState} 
+        modalState={modalState}>
+      </Modal>
+      <List 
+        clients={clients} 
+        changeModalState={changeModalState} 
+        modalState={modalState}> 
+      </List>
     </div>
   );
 }

@@ -12,18 +12,19 @@ export default function List(Props: any) {
                     <th className="bg-blue-100 border text-left px-8 py-4">Last Name</th>
                     <th className="bg-blue-100 border text-left px-8 py-4">Phone</th>
                     <th className="bg-blue-100 border text-left px-8 py-4">Avatar</th>
-                    <th className="bg-blue-100 border text-left px-8 py-4">Editing</th>
+                    <th className="bg-green-100 border text-left px-8 py-4">Editing</th>
                 </tr>
             </thead>
             <tbody>
                 {clients.map((client: IClient, index: number) => {
                         return (
                             <Item
-                            key={index}
-                            firstName={client.firstName}
-                            lastName={client.lastName}
-                            phone={client.phone}
-                            avatarUrl={client.avatarUrl}>
+                                key={index}
+                                firstName={client.firstName}
+                                lastName={client.lastName}
+                                phone={client.phone}
+                                avatarUrl={client.avatarUrl}
+                                changeModalState={Props.changeModalState}>
                             </Item>
                         )
                     })}
