@@ -2,7 +2,8 @@ import Item from './Item';
 import IClient from '../interface';
 
 export default function List(Props: any) {
-    let clients: IClient[] = Props.clients;
+    //let clients: IClient[] = Props.clients;
+    let data: IClient[] = Props.data;
 
     return (
         <table className="shadow-lg bg-white">
@@ -16,18 +17,19 @@ export default function List(Props: any) {
                 </tr>
             </thead>
             <tbody>
-                {clients.map((client: IClient, index: number) => {
-                        return (
-                            <Item
-                                key={index}
-                                firstName={client.firstName}
-                                lastName={client.lastName}
-                                phone={client.phone}
-                                avatarUrl={client.avatarUrl}
-                                changeModalState={Props.changeModalState}>
-                            </Item>
-                        )
-                    })}
+                {data.map((data: IClient, index: number) => {
+                    return (
+                        <Item
+                            key={index}
+                            id={data.id}
+                            firstName={data.firstName}
+                            lastName={data.lastName}
+                            phone={data.phone}
+                            avatarUrl={data.avatarUrl}
+                            changeModalState={Props.changeModalState}>
+                        </Item>
+                    )
+                })}
             </tbody>   
         </table>
     )
