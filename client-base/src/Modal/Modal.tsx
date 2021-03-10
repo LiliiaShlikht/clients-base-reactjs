@@ -2,6 +2,8 @@ import './Modal.css';
 import { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import IClient from '../interface';
+import { useQuery, useMutation } from "react-query";
+import { request, gql } from "graphql-request";
 
 type Inputs = {
     register: string,
@@ -11,8 +13,55 @@ type Inputs = {
 export default function Modal(Props: any) {
     let data = Props.modalData;
     const {register, handleSubmit} = useForm<Inputs>();
-    const onSubmit = (data: IClient) => console.log(data);
+    const endpoint = "https://test-task.expane.pro/api/graphql";
 
+    const mutation = useMutation(formData => {
+        return fetch('/api', formData)
+      })
+      const onSubmit = event => {
+        event.preventDefault()
+        mutation.mutate(new FormData(event.target))
+      }
+
+  //Add client
+    const CreateTodo = () => {
+        const mutation = useMutation(formData => {
+          return fetch('/api', formData)
+        })
+        const onSubmit = event => {
+          event.preventDefault()
+          mutation.mutate(new FormData(event.target))
+        }
+      }
+    //Edit client
+
+    const onSubmit = (client: IClient) => {
+        if(!data.id) {
+
+        } else {
+
+        }  
+    }
+
+    // if(data.id) {
+    //     console.log("EDIT: ", data.id)
+    // } else {
+        
+    //     const { status, data, error, isFetching } = useQuery("clients", async () => {
+    //         const data = (await request(
+    //         endpoint,
+    //         gql`{
+    //             addClient(
+    //                 firstName: String!
+    //                 lastName: String!
+    //                 phone: String
+    //                 avatarUrl: String
+    //                 ): Client
+    //             }`
+    //         )).addClient; 
+    //         return data;
+    //     });    
+    // }
     return (
         <Fragment>
             <button 
