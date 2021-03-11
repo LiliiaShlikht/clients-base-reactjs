@@ -1,0 +1,13 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.header {
+  padding-bottom: 20px;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 20px;
+}

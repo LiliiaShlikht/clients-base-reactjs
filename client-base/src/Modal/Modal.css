@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.modal-body {
+  padding: 2rem;
+  width: 400px;
+  border-radius: 5px;
+  background: #fff;
+  height: 250px;
+}
+
+.modal-body input[type="text"] {
+  border: 1px solid grey;
+  margin: 2px 0;
+  width: 230px;
+}
+
+.modal-body input[type="number"] {
+  border: 1px solid grey;
+  margin: 2px 0 2px 30px;
+  width: 230px;
+}
+
+.addButton {
+  margin-bottom: 15px;
+  margin-left: 665px;
+}
+
+.buttonPanel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 15px;
+}
+
+textarea[name="avatarUrl"] {
+  width: 230px;
+  border: 1px solid grey;
+  margin-left: 30px;
+}
